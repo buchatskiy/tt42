@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>test42</title>
+</head>
+<body>
+<div id="content">
+    {% block content %}
+    <h2>42 Coffee Cups Test Assignment</h2>
+    <p><b>Name: </b>{{ first_name }}</p>
+    <p><b>Last name: </b>{{ last_name }}</p>
+    <p><b>Date of birth: </b>{{ date_birth }}</p>
+    <p><b>Bio: </b>{{ bio }}</p>
+    <h3>Contacts</h3>
+    <p><b>Email: </b>{{ email }}</p>
+    <p><b>Jabber: </b>{{ jabber }}</p>
+    <p><b>Skype: </b>{{ skype }}</p>
+    <p><b>Other contacts: </b>{{ other_contacts }}</p>
+    {% endblock %}
+</div>
+</body>
+</html>
