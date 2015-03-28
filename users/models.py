@@ -6,8 +6,8 @@ class Users(models.Model):
     last_name = models.CharField(max_length=30)
     date_birth = models.DateField()
     email = models.EmailField(unique=True)
-    jabber = models.CharField(max_length=10, blank=True)
-    skype = models.CharField(max_length=10, blank=True)
+    jabber = models.CharField(max_length=30, blank=True)
+    skype = models.CharField(max_length=15, blank=True)
     bio = models.TextField(blank=True)
     other_contacts = models.TextField(blank=True)
 
