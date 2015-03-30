@@ -1,0 +1,37 @@
+[
+
+
+ {
+  "pk": 1,
+  "model": "auth.user",
+  "fields": {
+   "username": "admin",
+   "first_name": "Oleksandr",
+   "last_name": "Buchatskiy",
+   "is_active": true,
+   "is_superuser": true,
+   "is_staff": true,
+   "last_login": "2015-03-30 19:00:00",
+   "groups": [],
+   "user_permissions": [],
+   "password": "pbkdf2_sha256$15000$elEAmjGKNJ9B$8EfXF5bSn+CmwRhDWyXWToF1xhUYf5Qwq5CgqdXmgdQ=",
+   "email": "buchatskiy2@yandex.ru",
+   "date_joined": "2015-03-30 18:00:00"
+  }
+ },
+
+ {
+  "model": "users.users",
+  "pk": 1,
+  "fields": {
+   "first_name": "Oleksandr",
+   "last_name": "Buchatskiy",
+   "date_birth": "1990-02-20",
+   "email": "buchatskiy2@yandex.ru",
+   "jabber": "buchatskiy@chrome.pl",
+   "skype": "buchatskiy2",
+   "other_contacts": "-",
+   "bio": "some text"
+  }
+ }
+]
