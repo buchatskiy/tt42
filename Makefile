@@ -2,7 +2,7 @@ test:
 	./manage.py syncdb
 
 run:
-	./manage.py syncdb runserver
+	./manage.py runserver
 
 syncdb:
 	./manage.py syncdb --noinput
