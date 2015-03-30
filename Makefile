@@ -1,9 +1,11 @@
+.PHONY: test run syncdb
+
 test:
-	./manage.py syncdb
+	python manage.py test
 
 run:
-	./manage.py runserver
+	python manage.py runserver
 
 syncdb:
-	./manage.py syncdb --noinput
-	./manage.py loaddata su.json
+	python manage.py syncdb --noinput
+	python manage.py loaddata su.json
