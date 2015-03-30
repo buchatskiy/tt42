@@ -1,3 +1,5 @@
+DJANGO_SETTINGS_MODULE = testpr.settings
+
 .PHONY: test run syncdb
 
 test:
