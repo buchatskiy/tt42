@@ -1,5 +1,5 @@
 test:
-	./manage.py syncdb test
+	./manage.py syncdb
 
 run:
 	./manage.py syncdb runserver
