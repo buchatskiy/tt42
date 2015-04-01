@@ -3,7 +3,7 @@ SETTINGS=testpr.settings
 
 test:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
-	flake8 --exclude '*migrations*' apps fortytwo_test_task
+	flake8 --exclude '*migrations*' testpr
 
 run:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) runserver
