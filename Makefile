@@ -1,6 +1,8 @@
 MANAGE=django-admin.py
 SETTINGS=testpr.settings
 
+.PHONY: test syncdb migrate
+
 test:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
 	flake8 --exclude '*migrations*' testpr
@@ -17,6 +19,3 @@ migrate:
 
 collectstatic:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) collectstatic --noinput
-
-
-.PHONY: test syncdb migrate
