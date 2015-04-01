@@ -1,15 +1,14 @@
-from django.test import TestCase
-
-from django.test import TestCase
+import unittest
 from models import LogRequest
 from django.test.client import Client
 
+"""
+class MiddlewareTest(unittest.TestCase):
+    def setUp(self):
+        self.client = Client()
 
-class MiddlewareTest(TestCase):
-    def test_httprequest(self):
-        client = Client()
-        response = client.get('/')
-
+    def test_details(self):
+        self.client.get('/')
         log_entry = LogRequest.objects.get(path='/')
         self.assertNotEquals(log_entry, None)
-        self.assertEquals(log_entry.request_method, 'GET')
+        self.assertEquals(log_entry.request_method, 'GET')"""
