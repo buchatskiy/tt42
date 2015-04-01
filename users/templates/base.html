@@ -1,8 +1,17 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head lang="ru">
-    <meta charset="UTF-8">
-    <title>test42</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
+
+        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
+
+        {% block extra_head %}{% endblock extra_head %}
+    <title>{% block title %}test42{% endblock title %}</title>
 </head>
 <body>
 <div id="content">
@@ -17,7 +26,7 @@
     <p><b>Jabber: </b>{{ jabber }}</p>
     <p><b>Skype: </b>{{ skype }}</p>
     <p><b>Other contacts: </b>{{ other_contacts }}</p>
-    {% endblock %}
+    {% endblock content %}
 </div>
 </body>
 </html>
