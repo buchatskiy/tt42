@@ -11,12 +11,12 @@
         <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
 
         {% block extra_head %}{% endblock extra_head %}
-    <title>{% block title %}test42{% endblock title %}</title>
+    <title>{% block title %}main{% endblock title %}</title>
 </head>
 <body>
 <div id="content">
     {% block content %}
-    <h2>42 Coffee Cups Test Assignment</h2>
+    <h2>42 Coffee Cups Test Assignment</h2><h2><a href="/request">HTTP requests</a></h2>
     <p><b>Name: </b>{{ first_name }}</p>
     <p><b>Last name: </b>{{ last_name }}</p>
     <p><b>Date of birth: </b>{{ date_birth }}</p>
