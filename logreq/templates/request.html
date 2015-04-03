@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}HTTP Requests{% endblock title%}
+{% block content %}
+<table>
+   <tr>
+     <td>Date</td>
+     <td>Method</td>
+     <td>Path</td>
+   </tr>
+{% for e in entries %}
+   <tr>
+     <td>{{ e.date }}</td>
+     <td>{{ e.request_method }}</td>
+     <td>{{ e.path }}</td>
+   </tr>
+{% endfor %}
+</table>
+{% endblock content %}

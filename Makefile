@@ -1,13 +1,21 @@
-DJANGO_SETTINGS_MODULE = testpr.settings
+MANAGE=django-admin.py
+SETTINGS=testpr.settings
 
-.PHONY: test run syncdb
+.PHONY: test syncdb migrate
 
 test:
-	python manage.py test
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
+	flake8 --exclude '*migrations*' testpr
 
 run:
-	python manage.py runserver
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) runserver
 
 syncdb:
-	python manage.py syncdb --noinput
-	python manage.py loaddata su.json
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) syncdb --noinput
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) loaddata su.json
+
+migrate:
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) migrate
+
+collectstatic:
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) collectstatic --noinput

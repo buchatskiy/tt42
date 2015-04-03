@@ -10,9 +10,12 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+# App/Library Paths
+sys.path.append(os.path.join(BASE_DIR, 'apps'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -39,9 +42,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'logreq',
 )
 
 MIDDLEWARE_CLASSES = (
+    'logreq.middleware.SaveRequests',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,7 +69,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploads')
 
+MEDIA_URL = '/uploads/'
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -81,5 +88,16 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'assets'),
+)
+
+# Turn off south during test
+SOUTH_TESTS_MIGRATE = False
