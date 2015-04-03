@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from users.views import main
+from users.views import main, edit
 from logreq.views import log_request
 
 
@@ -10,5 +10,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', main, {'htmlfile': 'base.html'}),
     url(r'^request/$', log_request, {'htmlfile': 'request.html'}),
+    url(r'^edit/$', edit, {'htmlfile': 'edit.html'}),
+
     url(r'^admin/', include(admin.site.urls)),
 )

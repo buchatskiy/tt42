@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+<script>
+{
+$('#add_comment_submit').click(function() {
+    $.ajax({
+        url: $('#edit_user_form').attr('action'),
+        type: 'POST',
+        data: $('#edit_user_form').serialize(),
+        dataType: 'json',
+        success: function(response) {
+            if(response.success){
+                $('#edit_user_form')[0].reset();
+                $('.form-error').remove();
+                $('#comments').prepend(response.fields.message);
+            } else {
+                $('.form-error').remove();
+                for(var error in response.errors.fields) {
+                    $('#edit_user_form #id_' + error).before('<div class="form-error">' + response.errors.fields[error] + '</div>');
+                }
+            }
+        }
+    });
+});
+}
+</script>
+{% endblock extra_head %}
+{% block content %}
+    <div id="forms">
+        <form id="edit_user_form" action="/edit/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="button" type="submit" value="Изменить">
+        </form>
+    </div>
+{% endblock %}
