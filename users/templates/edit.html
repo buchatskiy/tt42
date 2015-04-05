@@ -1,29 +1,9 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block extra_head %}
-<script>
-{
-$('#add_comment_submit').click(function() {
-    $.ajax({
-        url: $('#edit_user_form').attr('action'),
-        type: 'POST',
-        data: $('#edit_user_form').serialize(),
-        dataType: 'json',
-        success: function(response) {
-            if(response.success){
-                $('#edit_user_form')[0].reset();
-                $('.form-error').remove();
-                $('#comments').prepend(response.fields.message);
-            } else {
-                $('.form-error').remove();
-                for(var error in response.errors.fields) {
-                    $('#edit_user_form #id_' + error).before('<div class="form-error">' + response.errors.fields[error] + '</div>');
-                }
-            }
-        }
-    });
-});
-}
-</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
 {% endblock extra_head %}
 {% block content %}
     <div id="forms">
