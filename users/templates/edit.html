@@ -7,9 +7,10 @@
 {% endblock extra_head %}
 {% block content %}
     <div id="forms">
-        <form id="edit_user_form" action="/edit/" method="post">
+        <form id="edit_user_form" action="/edit/" method="POST">
             {% csrf_token %}
-            {{ form }}
+            {{ form.as_p }}
+            <div id="results"></div>
             <input class="button" type="submit" value="Изменить">
         </form>
     </div>
